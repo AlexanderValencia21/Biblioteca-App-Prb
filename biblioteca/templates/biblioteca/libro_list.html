@@ -27,5 +27,6 @@
     {% if user.is_authenticated and user.rol == 'admin' %}
     <a href="{% url 'biblioteca:libro-create' %}" class="btn btn-success mb-3"> Nuevo Libro</a>
 {% endif %}
+<a href="login" class="btn btn-success mb-3">Cerrar sesión</a>
 </body>
 </html>

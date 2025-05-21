@@ -13,5 +13,7 @@ urlpatterns = [
     path('libro/<int:pk>/devolver/', views.DevolverLibroView.as_view(), name='libro-devolver'),
     path('mis-libros/', views.MisLibrosPrestadosView.as_view(), name='mis-libros'),
     path('crear-superuser/', views.CrearSuperUsuarioTemporalView.as_view()),
+    path('login/', auth_views.LoginView.as_view(template_name='biblioteca/login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
 ]
 

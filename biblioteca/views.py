@@ -11,7 +11,7 @@ from rest_framework.response import Response
 from django.http import JsonResponse
 
 
-class LibroListView(ListView):
+class LibroListView(LoginRequiredMixin, ListView):
     model = Libro
     template_name = 'biblioteca/libro_list.html'
     context_object_name = 'libros'

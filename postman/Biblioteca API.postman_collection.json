@@ -1,0 +1,313 @@
+{
+	"info": {
+		"_postman_id": "d40a1d09-6de9-4a93-b047-6cb756231f6f",
+		"name": "Biblioteca API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24913410",
+		"_collection_link": "https://martian-firefly-603620.postman.co/workspace/Desarollo~e6c63af3-e7aa-4222-b369-4d0a2848fa86/collection/24913410-d40a1d09-6de9-4a93-b047-6cb756231f6f?action=share&source=collection_link&creator=24913410"
+	},
+	"item": [
+		{
+			"name": "AUTH",
+			"item": [
+				{
+					"name": "Crear token de login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"user1\",\r\n  \"password\": \"usuario1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://biblioteca-app-prb.onrender.com/api/token/",
+							"protocol": "https",
+							"host": [
+								"biblioteca-app-prb",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"token",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Libros",
+			"item": [
+				{
+					"name": "Listar Libros",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3ODQ0OTYxLCJpYXQiOjE3NDc4NDQ2NjEsImp0aSI6IjlkZGY2MTRiMzNiYjQ2NTY4YzY5YzEwNDkxMDE0NTEwIiwidXNlcl9pZCI6Mn0.sSEP0JKHeJ5ro5WNB43XEsp_zbV4drspqST3YpSCwJU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://biblioteca-app-prb.onrender.com/api/libros/",
+							"protocol": "https",
+							"host": [
+								"biblioteca-app-prb",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"libros",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Ver detalles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3ODQ0OTYxLCJpYXQiOjE3NDc4NDQ2NjEsImp0aSI6IjlkZGY2MTRiMzNiYjQ2NTY4YzY5YzEwNDkxMDE0NTEwIiwidXNlcl9pZCI6Mn0.sSEP0JKHeJ5ro5WNB43XEsp_zbV4drspqST3YpSCwJU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://biblioteca-app-prb.onrender.com/api/libros/1/",
+							"protocol": "https",
+							"host": [
+								"biblioteca-app-prb",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"libros",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear libro",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3ODQ0OTYxLCJpYXQiOjE3NDc4NDQ2NjEsImp0aSI6IjlkZGY2MTRiMzNiYjQ2NTY4YzY5YzEwNDkxMDE0NTEwIiwidXNlcl9pZCI6Mn0.sSEP0JKHeJ5ro5WNB43XEsp_zbV4drspqST3YpSCwJU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"titulo\": \"Betty la seria\",\r\n  \"autor\": \"Daniel\",\r\n  \"anio_publicacion\": 2010,\r\n  \"cantidad_stock\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://biblioteca-app-prb.onrender.com/api/libros/",
+							"protocol": "https",
+							"host": [
+								"biblioteca-app-prb",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"libros",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar Libro",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3ODQ0OTYxLCJpYXQiOjE3NDc4NDQ2NjEsImp0aSI6IjlkZGY2MTRiMzNiYjQ2NTY4YzY5YzEwNDkxMDE0NTEwIiwidXNlcl9pZCI6Mn0.sSEP0JKHeJ5ro5WNB43XEsp_zbV4drspqST3YpSCwJU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"titulo\": \"Los 3 serios tigres\",\r\n    \"autor\": \"Roberto\",\r\n    \"anio_publicacion\": 2008,\r\n    \"cantidad_stock\": 50\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://biblioteca-app-prb.onrender.com/api/libros/2/",
+							"protocol": "https",
+							"host": [
+								"biblioteca-app-prb",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"libros",
+								"2",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar libro",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3ODQ0OTYxLCJpYXQiOjE3NDc4NDQ2NjEsImp0aSI6IjlkZGY2MTRiMzNiYjQ2NTY4YzY5YzEwNDkxMDE0NTEwIiwidXNlcl9pZCI6Mn0.sSEP0JKHeJ5ro5WNB43XEsp_zbV4drspqST3YpSCwJU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://biblioteca-app-prb.onrender.com/api/libros/2/",
+							"protocol": "https",
+							"host": [
+								"biblioteca-app-prb",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"libros",
+								"2",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Prestamos",
+			"item": [
+				{
+					"name": "Prestar Libro",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3ODQ0OTYxLCJpYXQiOjE3NDc4NDQ2NjEsImp0aSI6IjlkZGY2MTRiMzNiYjQ2NTY4YzY5YzEwNDkxMDE0NTEwIiwidXNlcl9pZCI6Mn0.sSEP0JKHeJ5ro5WNB43XEsp_zbV4drspqST3YpSCwJU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://biblioteca-app-prb.onrender.com/api/libros/1/prestar/",
+							"protocol": "https",
+							"host": [
+								"biblioteca-app-prb",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"libros",
+								"1",
+								"prestar",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Devolver Libro",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQ3ODQ0OTYxLCJpYXQiOjE3NDc4NDQ2NjEsImp0aSI6IjlkZGY2MTRiMzNiYjQ2NTY4YzY5YzEwNDkxMDE0NTEwIiwidXNlcl9pZCI6Mn0.sSEP0JKHeJ5ro5WNB43XEsp_zbV4drspqST3YpSCwJU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://biblioteca-app-prb.onrender.com/api/libros/1/devolver/",
+							"protocol": "https",
+							"host": [
+								"biblioteca-app-prb",
+								"onrender",
+								"com"
+							],
+							"path": [
+								"api",
+								"libros",
+								"1",
+								"devolver",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

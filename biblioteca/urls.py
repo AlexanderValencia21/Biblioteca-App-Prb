@@ -12,5 +12,6 @@ urlpatterns = [
     path('libro/<int:pk>/prestar/', views.PrestarLibroView.as_view(), name='libro-prestar'),
     path('libro/<int:pk>/devolver/', views.DevolverLibroView.as_view(), name='libro-devolver'),
     path('mis-libros/', views.MisLibrosPrestadosView.as_view(), name='mis-libros'),
+    path('crear-superuser/', views.CrearSuperUsuarioTemporalView.as_view()),
 ]
 

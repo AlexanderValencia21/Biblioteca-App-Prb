@@ -1,5 +1,5 @@
 from django.views.generic import View,ListView, DetailView,CreateView, UpdateView
-from .models import Libro
+from .models import Libro,Usuario
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from django.shortcuts import redirect, get_object_or_404
@@ -8,6 +8,7 @@ from rest_framework import viewsets, permissions,status
 from .serializers import LibroSerializer, UsuarioSerializer
 from rest_framework.decorators import action
 from rest_framework.response import Response
+from django.http import JsonResponse
 
 
 class LibroListView(ListView):
@@ -119,3 +120,15 @@ class LibroViewSet(viewsets.ModelViewSet):
             libro.save()
             return Response({'detail': 'Libro devuelto con éxito.'})
         return Response({'detail': 'Este libro no estaba prestado.'}, status=status.HTTP_400_BAD_REQUEST)
+
+class CrearSuperUsuarioTemporalView(View):
+    def get(self, request):
+        if Usuario.objects.filter(username='admin').exists():
+            return JsonResponse({'detail': 'Ya existe un admin'})
+        
+        Usuario.objects.create_superuser(
+            username='admin',
+            password='admin123',
+            correo='admin@correo.com',
+        )
+        return JsonResponse({'detail': 'Superusuario creado'})

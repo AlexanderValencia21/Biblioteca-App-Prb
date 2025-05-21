@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Libros</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+    <h1 class="mb-4">Lista de Libros</h1>
+    {% if user.is_authenticated and user.rol == 'regular' %}
+    <a href="{% url 'biblioteca:mis-libros' %}" class="btn btn-info mb-3">Mis libros prestados</a>
+    {% endif %}
+    <ul class="list-group">
+        {% for libro in libros %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                {{ libro.titulo }} - {{ libro.autor }}
+                <a href="{% url 'biblioteca:libro-detail' libro.pk %}" class="btn btn-sm btn-primary">Ver detalles</a>
+                {% if user.is_authenticated and user.rol == 'admin' %}
+                 <a href="{% url 'biblioteca:libro-update' libro.pk %}" class="btn btn-sm btn-warning ms-2">Editar</a>
+                {% endif %}
+            </li>
+        {% empty %}
+            <li class="list-group-item">No hay libros disponibles.</li>
+        {% endfor %}
+    </ul>
+    {% if user.is_authenticated and user.rol == 'admin' %}
+    <a href="{% url 'biblioteca:libro-create' %}" class="btn btn-success mb-3"> Nuevo Libro</a>
+{% endif %}
+</body>
+</html>
